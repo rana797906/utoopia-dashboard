@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   if (!account) return res.status(404).json({ error: 'Account not found' })
 
   try {
-    const allRows = await fetchSheetData(account.sheetId)
+    const allRows = await fetchSheetData(account.pubUrl)
     const days = parseInt(range)
     const filtered = days === 0 ? allRows : getDateRange(allRows, days)
 
